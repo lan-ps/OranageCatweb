@@ -1,0 +1,24 @@
+# Apache 安全配置文件
+# 
+# 本文件用于保护敏感文件，防止直接访问
+# 
+# 配置说明:
+# 1. 禁止直接访问 config.php（包含数据库密码、加密密钥等敏感信息）
+# 2. 使用 Apache 的 Files 指令进行访问控制
+# 3. Order allow,deny 表示默认拒绝所有访问
+# 4. Deny from all 明确拒绝所有来源的请求
+# 
+# 安全特性:
+# - 防止攻击者直接访问配置文件获取敏感信息
+# - 即使文件权限设置不当，Apache 层也能提供保护
+# - 仅允许 PHP 脚本内部通过 require/include 访问
+# 
+# 注意事项:
+# - 本配置仅适用于 Apache 服务器
+# - Nginx 用户请在 nginx.conf 中配置相应的访问控制
+# - 修改前请确保了解 Apache 配置语法
+
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>

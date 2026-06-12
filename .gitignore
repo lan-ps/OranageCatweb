@@ -1,0 +1,4 @@
+php_errors.log
+*.log
+.env
+config.local.php
