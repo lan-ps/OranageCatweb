@@ -30,7 +30,8 @@
 
 > ⚠️ **注意**：演示站数据每日自动清空，请勿存储重要信息
 >
-
+![全部界面截图](catpic/pintu.png)
+> *全部界面截图*
 >
 ### 🎯 适用场景
 
@@ -70,7 +71,7 @@
 | 项目 | 说明 | 链接 |
 |------|------|------|
 | **橘猫服务端** | Android 短信/来电转发端，负责监听和转发 | [GitHub](https://github.com/LanPS/OrangeCatsms) |
-| **橘猫客户端** | Android 数据查看端，移动端查看短信和来电 | [GitHub](https://github.com/LanPS/OrangeCatweb) |
+| **橘猫客户端** | Android 数据查看端，移动端查看短信和来电 | [GitHub](https://github.com/LanPS/OrangeCatClient) |
 
 ---
 
@@ -572,7 +573,7 @@ rm install.php
 
 在 Android 查看端配置：
 - **服务器地址**：`https://your-domain.com`
-- **Token**：与 `config.php` 中的 `AUTH_TOKEN` 一致（或使用账号密码登录）
+- **Token**：与 `config.php` 中的 `AUTH_TOKEN` 一致
 
 ---
 
