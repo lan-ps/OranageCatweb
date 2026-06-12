@@ -18,7 +18,20 @@
 ## 📖 项目简介
 
 基于 **PHP 8.1 + MySQL** 的**短信转发管理系统**和**来电转发管理系统**，专为多设备短信管理和远程监控设计。这是一个完整的**短信转发后台**解决方案，支持接收来自 Android 设备的**短信转发**、**来电转发**、**验证码转发**数据，提供美观的 Web 管理界面和 RESTful API。
+>
+>这是三合一的项目 分为前-中-后 三部分
 
+
+### 🌐 在线演示
+> **演示站点**: https://sms.000818.xyz/
+
+演示账号：`lanps`
+演示密码：`11qqaazz`
+
+> ⚠️ **注意**：演示站数据每日自动清空，请勿存储重要信息
+>
+
+>
 ### 🎯 适用场景
 
 - **多设备短信管理**：集中管理多台 Android 设备的短信，统一查看和搜索
@@ -56,8 +69,8 @@
 
 | 项目 | 说明 | 链接 |
 |------|------|------|
-| **橘猫服务端** | Android 短信/来电转发端，负责监听和转发 | [GitHub](https://github.com) |
-| **橘猫客户端** | Android 数据查看端，移动端查看短信和来电 | [GitHub](https://github.com) |
+| **橘猫服务端** | Android 短信/来电转发端，负责监听和转发 | [GitHub](https://github.com/LanPS/OrangeCatsms) |
+| **橘猫客户端** | Android 数据查看端，移动端查看短信和来电 | [GitHub](https://github.com/LanPS/OrangeCatweb) |
 
 ---
 
@@ -68,12 +81,10 @@
 #### 数据看板
 - **记录列表**：分页展示所有短信/来电记录
 - **时间筛选**：今天、最近7天、全部
-- **设备筛选**：按设备名称过滤
-- **类型筛选**：短信/来电分类查看
-- **统计信息**：总记录数、短信数、来电数
+- **智能分页**：支持页码跳转、每页条数设置
 
-> **[插图1：Web管理后台主页截图]**  
-> `请在此处插入管理后台主页截图，展示记录列表、筛选栏、统计数据`
+>![数据看板界面截图](catpic/{8CC751E7-FC1E-4C36-84ED-630D8F7D2B3C}.png)
+> *数据看板界面截图*
 
 #### 实时增量更新
 - 新记录自动插入列表顶部
@@ -86,8 +97,10 @@
 - 来电号码、归属地、通话时间
 - 设备信息、事件时间
 
-> **[插图2：记录详情弹窗截图]**  
-> `请在此处插入记录详情弹窗截图`
+>
+> ![记录详情弹窗截图](catpic/{4D60ED71-AC6A-430F-B3AC-073BDC87858D}.png)
+> *记录详情弹窗截图*
+
 
 #### 用户系统
 - 登录/登出
@@ -95,8 +108,9 @@
 - 记住我（7天免登录）
 - 修改用户名/密码
 
-> **[插图3：登录页面截图]**  
-> `请在此处插入登录页面截图，展示登录表单和验证码`
+> 
+>![登录页面截图](catpic/{5A71ECE5-48AC-4D02-809E-3CA596E63098}.png)
+> *登录页面截图*
 
 #### 安全防护
 - **验证码**：登录失败后自动出现
@@ -104,8 +118,16 @@
 - **IP封禁**：失败5次封禁10分钟
 - **CSRF防护**：每次请求验证 Token
 
-> **[插图4：验证码截图]**  
-> `请在此处插入验证码图片截图`
+>![封禁页面截图](catpic/{0928ED23-6C1E-43DF-886C-87FEC6C557AF}.png)
+> *封禁截图*
+
+#### 修改用户名/密码
+- 登录后进入个人中心，点击"修改资料"即可
+- 也可通过 `/api/profile.php` 接口修改（需携带 Token）
+- 修改成功后需重新登录
+
+>![修改资料页面截图](catpic/{777D3DD7-2F26-4195-AD2C-1A35FA8D77BE}.png)
+> *修改资料页面截图*
 
 ### RESTful API
 
@@ -330,11 +352,11 @@ php -m | grep -E "pdo_mysql|openssl|gd|mbstring"
 
 ```bash
 # 克隆仓库
-git clone https://github.com/your-username/orange-cat-web.git
+git clone https://github.com/lan-ps/OranageCatweb.git
 cd orange-cat-web
 
 # 或下载 ZIP
-wget https://github.com/your-username/orange-cat-web/archive/main.zip
+wget https://github.com/lan-ps/OranageCatweb/archive/main.zip
 unzip main.zip
 cd orange-cat-web-main
 ```
@@ -510,8 +532,9 @@ sudo systemctl restart apache2
 
 浏览器访问 `https://your-domain.com/install.php`：
 
-> **[插图5：安装向导页面截图]**  
-> `请在此处插入 install.php 页面截图，展示管理员账号创建表单`
+>
+![安装向导页面截图](catpic/{BDA0030F-422E-4616-9BCC-A18EE42246FA}.png) 
+> *安装向导页面截图*
 
 **安装步骤：**
 1. 系统自动检测数据库连接
@@ -530,8 +553,6 @@ rm install.php
 
 访问 `https://your-domain.com/` 进入登录页面：
 
-> **[插图6：登录页面截图]**  
-> `请在此处插入登录页面截图`
 
 **登录流程：**
 1. 输入管理员账号和密码
@@ -679,6 +700,7 @@ CREATE TABLE login_locks (
 
 #### 1. 环境配置
 
+必须使用https协议，否则无法登陆系统，可以使用xp.cn面板部署更快捷。
 ```php
 // 生产环境开关
 define('IS_PRODUCTION', false);  // 生产环境改为 true（强制 HTTPS）
@@ -1460,8 +1482,8 @@ MIT License. 详见 [LICENSE](LICENSE) 文件。
 
 ## 📞 联系方式
 
-- **GitHub Issues**：[提交问题](https://github.com/your-username/orange-cat-web/issues)
-- **Email**：your-email@example.com
+- **GitHub Issues**：[提交问题](https://github.com/lan-ps/OranageCatweb/issues)
+- **Email**：wangjiya@866000.xyz
 
 ---
 
@@ -1469,6 +1491,6 @@ MIT License. 详见 [LICENSE](LICENSE) 文件。
 
 **如果这个项目对你有帮助，请给一个 ⭐ Star 支持！**
 
-[⭐ Star](https://github.com/your-username/orange-cat-web) · [🍴 Fork](https://github.com/your-username/orange-cat-web/fork) · [📥 Download](https://github.com/your-username/orange-cat-web/archive/main.zip)
+[⭐ Star](https://github.com/lan-ps/OranageCatweb) · [🍴 Fork](https://github.com/lan-ps/OranageCatweb/fork) · [📥 Download](https://github.com/lan-ps/OranageCatweb/archive/main.zip)
 
 </div>
