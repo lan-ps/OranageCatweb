@@ -70,8 +70,8 @@
 
 | 项目 | 说明 | 链接 |
 |------|------|------|
-| **橘猫服务端** | Android 短信/来电转发端，负责监听和转发 | [GitHub](https://github.com/LanPS/OrangeCatsms) |
-| **橘猫客户端** | Android 数据查看端，移动端查看短信和来电 | [GitHub](https://github.com/LanPS/OrangeCatClient) |
+| **橘猫服务端** | Android 短信/来电转发端，负责监听和转发 | [GitHub](https://github.com/lan-ps/OrangeCatsms) |
+| **橘猫客户端** | Android 数据查看端，移动端查看短信和来电 | [GitHub](https://github.com/lan-ps/OrangeCatClient) |
 
 ---
 
